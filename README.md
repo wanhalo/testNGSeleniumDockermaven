@@ -985,3 +985,252 @@ To tell the development server to proxy any unknown requests to your API server 
 ```js
   "proxy": "http://localhost:4000",
 ```
+
+This way, when you `fetch('/api/todos')` in development, the development server will recognize that it’s not a static asset, and will proxy your request to `http://localhost:4000/api/todos` as a fallback. The development server will **only** attempt to send requests without `text/html` in its `Accept` header to the proxy.
+
+Conveniently, this avoids [CORS issues](http://stackoverflow.com/questions/21854516/understanding-ajax-cors-and-security-considerations) and error messages like this in development:
+
+```
+Fetch API cannot load http://localhost:4000/api/todos. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:3000' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+```
+
+Keep in mind that `proxy` only has effect in development (with `npm start`), and it is up to you to ensure that URLs like `/api/todos` point to the right thing in production. You don’t have to use the `/api` prefix. Any unrecognized request without a `text/html` accept header will be redirected to the specified `proxy`.
+
+The `proxy` option supports HTTP, HTTPS and WebSocket connections.<br>
+If the `proxy` option is **not** flexible enough for you, alternatively you can:
+
+* [Configure the proxy yourself](#configuring-the-proxy-manually)
+* Enable CORS on your server ([here’s how to do it for Express](http://enable-cors.org/server_expressjs.html)).
+* Use [environment variables](#adding-custom-environment-variables) to inject the right server host and port into your app.
+
+### "Invalid Host Header" Errors After Configuring Proxy
+
+When you enable the `proxy` option, you opt into a more strict set of host checks. This is necessary because leaving the backend open to remote hosts makes your computer vulnerable to DNS rebinding attacks. The issue is explained in [this article](https://medium.com/webpack/webpack-dev-server-middleware-security-issues-1489d950874a) and [this issue](https://github.com/webpack/webpack-dev-server/issues/887).
+
+This shouldn’t affect you when developing on `localhost`, but if you develop remotely like [described here](https://github.com/facebookincubator/create-react-app/issues/2271), you will see this error in the browser after enabling the `proxy` option:
+
+>Invalid Host header
+
+To work around it, you can specify your public development host in a file called `.env.development` in the root of your project:
+
+```
+HOST=mypublicdevhost.com
+```
+
+If you restart the development server now and load the app from the specified host, it should work.
+
+If you are still having issues or if you’re using a more exotic environment like a cloud editor, you can bypass the host check completely by adding a line to `.env.development.local`. **Note that this is dangerous and exposes your machine to remote code execution from malicious websites:**
+
+```
+# NOTE: THIS IS DANGEROUS!
+# It exposes your machine to attacks from the websites you visit.
+DANGEROUSLY_DISABLE_HOST_CHECK=true
+```
+
+We don’t recommend this approach.
+
+### Configuring the Proxy Manually
+
+>Note: this feature is available with `react-scripts@1.0.0` and higher.
+
+If the `proxy` option is **not** flexible enough for you, you can specify an object in the following form (in `package.json`).<br>
+You may also specify any configuration value [`http-proxy-middleware`](https://github.com/chimurai/http-proxy-middleware#options) or [`http-proxy`](https://github.com/nodejitsu/node-http-proxy#options) supports.
+```js
+{
+  // ...
+  "proxy": {
+    "/api": {
+      "target": "<url>",
+      "ws": true
+      // ...
+    }
+  }
+  // ...
+}
+```
+
+All requests matching this path will be proxies, no exceptions. This includes requests for `text/html`, which the standard `proxy` option does not proxy.
+
+If you need to specify multiple proxies, you may do so by specifying additional entries.
+Matches are regular expressions, so that you can use a regexp to match multiple paths.
+```js
+{
+  // ...
+  "proxy": {
+    // Matches any request starting with /api
+    "/api": {
+      "target": "<url_1>",
+      "ws": true
+      // ...
+    },
+    // Matches any request starting with /foo
+    "/foo": {
+      "target": "<url_2>",
+      "ssl": true,
+      "pathRewrite": {
+        "^/foo": "/foo/beta"
+      }
+      // ...
+    },
+    // Matches /bar/abc.html but not /bar/sub/def.html
+    "/bar/[^/]*[.]html": {
+      "target": "<url_3>",
+      // ...
+    },
+    // Matches /baz/abc.html and /baz/sub/def.html
+    "/baz/.*/.*[.]html": {
+      "target": "<url_4>"
+      // ...
+    }
+  }
+  // ...
+}
+```
+
+### Configuring a WebSocket Proxy
+
+When setting up a WebSocket proxy, there are a some extra considerations to be aware of.
+
+If you’re using a WebSocket engine like [Socket.io](https://socket.io/), you must have a Socket.io server running that you can use as the proxy target. Socket.io will not work with a standard WebSocket server. Specifically, don't expect Socket.io to work with [the websocket.org echo test](http://websocket.org/echo.html).
+
+There’s some good documentation available for [setting up a Socket.io server](https://socket.io/docs/).
+
+Standard WebSockets **will** work with a standard WebSocket server as well as the websocket.org echo test. You can use libraries like [ws](https://github.com/websockets/ws) for the server, with [native WebSockets in the browser](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
+
+Either way, you can proxy WebSocket requests manually in `package.json`:
+
+```js
+{
+  // ...
+  "proxy": {
+    "/socket": {
+      // Your compatible WebSocket server
+      "target": "ws://<socket_url>",
+      // Tell http-proxy-middleware that this is a WebSocket proxy.
+      // Also allows you to proxy WebSocket requests without an additional HTTP request
+      // https://github.com/chimurai/http-proxy-middleware#external-websocket-upgrade
+      "ws": true
+      // ...
+    }
+  }
+  // ...
+}
+```
+
+## Using HTTPS in Development
+
+>Note: this feature is available with `react-scripts@0.4.0` and higher.
+
+You may require the dev server to serve pages over HTTPS. One particular case where this could be useful is when using [the "proxy" feature](#proxying-api-requests-in-development) to proxy requests to an API server when that API server is itself serving HTTPS.
+
+To do this, set the `HTTPS` environment variable to `true`, then start the dev server as usual with `npm start`:
+
+#### Windows (cmd.exe)
+
+```cmd
+set HTTPS=true&&npm start
+```
+
+(Note: the lack of whitespace is intentional.)
+
+#### Linux, macOS (Bash)
+
+```bash
+HTTPS=true npm start
+```
+
+Note that the server will use a self-signed certificate, so your web browser will almost definitely display a warning upon accessing the page.
+
+## Generating Dynamic `<meta>` Tags on the Server
+
+Since Create React App doesn’t support server rendering, you might be wondering how to make `<meta>` tags dynamic and reflect the current URL. To solve this, we recommend to add placeholders into the HTML, like this:
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta property="og:title" content="__OG_TITLE__">
+    <meta property="og:description" content="__OG_DESCRIPTION__">
+```
+
+Then, on the server, regardless of the backend you use, you can read `index.html` into memory and replace `__OG_TITLE__`, `__OG_DESCRIPTION__`, and any other placeholders with values depending on the current URL. Just make sure to sanitize and escape the interpolated values so that they are safe to embed into HTML!
+
+If you use a Node server, you can even share the route matching logic between the client and the server. However duplicating it also works fine in simple cases.
+
+## Pre-Rendering into Static HTML Files
+
+If you’re hosting your `build` with a static hosting provider you can use [react-snapshot](https://www.npmjs.com/package/react-snapshot) or [react-snap](https://github.com/stereobooster/react-snap) to generate HTML pages for each route, or relative link, in your application. These pages will then seamlessly become active, or “hydrated”, when the JavaScript bundle has loaded.
+
+There are also opportunities to use this outside of static hosting, to take the pressure off the server when generating and caching routes.
+
+The primary benefit of pre-rendering is that you get the core content of each page _with_ the HTML payload—regardless of whether or not your JavaScript bundle successfully downloads. It also increases the likelihood that each route of your application will be picked up by search engines.
+
+You can read more about [zero-configuration pre-rendering (also called snapshotting) here](https://medium.com/superhighfives/an-almost-static-stack-6df0a2791319).
+
+## Injecting Data from the Server into the Page
+
+Similarly to the previous section, you can leave some placeholders in the HTML that inject global variables, for example:
+
+```js
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      window.SERVER_DATA = __SERVER_DATA__;
+    </script>
+```
+
+Then, on the server, you can replace `__SERVER_DATA__` with a JSON of real data right before sending the response. The client code can then read `window.SERVER_DATA` to use it. **Make sure to [sanitize the JSON before sending it to the client](https://medium.com/node-security/the-most-common-xss-vulnerability-in-react-js-applications-2bdffbcc1fa0) as it makes your app vulnerable to XSS attacks.**
+
+## Running Tests
+
+>Note: this feature is available with `react-scripts@0.3.0` and higher.<br>
+>[Read the migration guide to learn how to enable it in older projects!](https://github.com/facebookincubator/create-react-app/blob/master/CHANGELOG.md#migrating-from-023-to-030)
+
+Create React App uses [Jest](https://facebook.github.io/jest/) as its test runner. To prepare for this integration, we did a [major revamp](https://facebook.github.io/jest/blog/2016/09/01/jest-15.html) of Jest so if you heard bad things about it years ago, give it another try.
+
+Jest is a Node-based runner. This means that the tests always run in a Node environment and not in a real browser. This lets us enable fast iteration speed and prevent flakiness.
+
+While Jest provides browser globals such as `window` thanks to [jsdom](https://github.com/tmpvar/jsdom), they are only approximations of the real browser behavior. Jest is intended to be used for unit tests of your logic and your components rather than the DOM quirks.
+
+We recommend that you use a separate tool for browser end-to-end tests if you need them. They are beyond the scope of Create React App.
+
+### Filename Conventions
+
+Jest will look for test files with any of the following popular naming conventions:
+
+* Files with `.js` suffix in `__tests__` folders.
+* Files with `.test.js` suffix.
+* Files with `.spec.js` suffix.
+
+The `.test.js` / `.spec.js` files (or the `__tests__` folders) can be located at any depth under the `src` top level folder.
+
+We recommend to put the test files (or `__tests__` folders) next to the code they are testing so that relative imports appear shorter. For example, if `App.test.js` and `App.js` are in the same folder, the test just needs to `import App from './App'` instead of a long relative path. Colocation also helps find tests more quickly in larger projects.
+
+### Command Line Interface
+
+When you run `npm test`, Jest will launch in the watch mode. Every time you save a file, it will re-run the tests, just like `npm start` recompiles the code.
+
+The watcher includes an interactive command-line interface with the ability to run all tests, or focus on a search pattern. It is designed this way so that you can keep it open and enjoy fast re-runs. You can learn the commands from the “Watch Usage” note that the watcher prints after every run:
+
+![Jest watch mode](http://facebook.github.io/jest/img/blog/15-watch.gif)
+
+### Version Control Integration
+
+By default, when you run `npm test`, Jest will only run the tests related to files changed since the last commit. This is an optimization designed to make your tests run fast regardless of how many tests you have. However it assumes that you don’t often commit the code that doesn’t pass the tests.
+
+Jest will always explicitly mention that it only ran tests related to the files changed since the last commit. You can also press `a` in the watch mode to force Jest to run all tests.
+
+Jest will always run all tests on a [continuous integration](#continuous-integration) server or if the project is not inside a Git or Mercurial repository.
+
+### Writing Tests
+
+To create tests, add `it()` (or `test()`) blocks with the name of the test and its code. You may optionally wrap them in `describe()` blocks for logical grouping but this is neither required nor recommended.
+
+Jest provides a built-in `expect()` global function for making assertions. A basic test could look like this:
+
+```js
+import sum from './sum';
+
+it('sums numbers', () => {
+  expect(sum(1, 2)).toEqual(3);
