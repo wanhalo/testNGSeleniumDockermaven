@@ -1479,3 +1479,261 @@ CI=true npm run build
 ```
 
 The test command will force Jest to run tests once instead of launching the watcher.
+
+>  If you find yourself doing this often in development, please [file an issue](https://github.com/facebookincubator/create-react-app/issues/new) to tell us about your use case because we want to make watcher the best experience and are open to changing how it works to accommodate more workflows.
+
+The build command will check for linter warnings and fail if any are found.
+
+### Disabling jsdom
+
+By default, the `package.json` of the generated project looks like this:
+
+```js
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom"
+```
+
+If you know that none of your tests depend on [jsdom](https://github.com/tmpvar/jsdom), you can safely remove `--env=jsdom`, and your tests will run faster:
+
+```diff
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+-   "test": "react-scripts test --env=jsdom"
++   "test": "react-scripts test"
+```
+
+To help you make up your mind, here is a list of APIs that **need jsdom**:
+
+* Any browser globals like `window` and `document`
+* [`ReactDOM.render()`](https://facebook.github.io/react/docs/top-level-api.html#reactdom.render)
+* [`TestUtils.renderIntoDocument()`](https://facebook.github.io/react/docs/test-utils.html#renderintodocument) ([a shortcut](https://github.com/facebook/react/blob/34761cf9a252964abfaab6faf74d473ad95d1f21/src/test/ReactTestUtils.js#L83-L91) for the above)
+* [`mount()`](http://airbnb.io/enzyme/docs/api/mount.html) in [Enzyme](http://airbnb.io/enzyme/index.html)
+
+In contrast, **jsdom is not needed** for the following APIs:
+
+* [`TestUtils.createRenderer()`](https://facebook.github.io/react/docs/test-utils.html#shallow-rendering) (shallow rendering)
+* [`shallow()`](http://airbnb.io/enzyme/docs/api/shallow.html) in [Enzyme](http://airbnb.io/enzyme/index.html)
+
+Finally, jsdom is also not needed for [snapshot testing](http://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
+
+### Snapshot Testing
+
+Snapshot testing is a feature of Jest that automatically generates text snapshots of your components and saves them on the disk so if the UI output changes, you get notified without manually writing any assertions on the component output. [Read more about snapshot testing.](http://facebook.github.io/jest/blog/2016/07/27/jest-14.html)
+
+### Editor Integration
+
+If you use [Visual Studio Code](https://code.visualstudio.com), there is a [Jest extension](https://github.com/orta/vscode-jest) which works with Create React App out of the box. This provides a lot of IDE-like features while using a text editor: showing the status of a test run with potential fail messages inline, starting and stopping the watcher automatically, and offering one-click snapshot updates.
+
+![VS Code Jest Preview](https://cloud.githubusercontent.com/assets/49038/20795349/a032308a-b7c8-11e6-9b34-7eeac781003f.png)
+
+## Developing Components in Isolation
+
+Usually, in an app, you have a lot of UI components, and each of them has many different states.
+For an example, a simple button component could have following states:
+
+* In a regular state, with a text label.
+* In the disabled mode.
+* In a loading state.
+
+Usually, it’s hard to see these states without running a sample app or some examples.
+
+Create React App doesn’t include any tools for this by default, but you can easily add [Storybook for React](https://storybook.js.org) ([source](https://github.com/storybooks/storybook)) or [React Styleguidist](https://react-styleguidist.js.org/) ([source](https://github.com/styleguidist/react-styleguidist)) to your project. **These are third-party tools that let you develop components and see all their states in isolation from your app**.
+
+![Storybook for React Demo](http://i.imgur.com/7CIAWpB.gif)
+
+You can also deploy your Storybook or style guide as a static app. This way, everyone in your team can view and review different states of UI components without starting a backend server or creating an account in your app.
+
+### Getting Started with Storybook
+
+Storybook is a development environment for React UI components. It allows you to browse a component library, view the different states of each component, and interactively develop and test components.
+
+First, install the following npm package globally:
+
+```sh
+npm install -g @storybook/cli
+```
+
+Then, run the following command inside your app’s directory:
+
+```sh
+getstorybook
+```
+
+After that, follow the instructions on the screen.
+
+Learn more about React Storybook:
+
+* Screencast: [Getting Started with React Storybook](https://egghead.io/lessons/react-getting-started-with-react-storybook)
+* [GitHub Repo](https://github.com/storybooks/storybook)
+* [Documentation](https://storybook.js.org/basics/introduction/)
+* [Snapshot Testing UI](https://github.com/storybooks/storybook/tree/master/addons/storyshots) with Storybook + addon/storyshot
+
+### Getting Started with Styleguidist
+
+Styleguidist combines a style guide, where all your components are presented on a single page with their props documentation and usage examples, with an environment for developing components in isolation, similar to Storybook. In Styleguidist you write examples in Markdown, where each code snippet is rendered as a live editable playground.
+
+First, install Styleguidist:
+
+```sh
+npm install --save react-styleguidist
+```
+
+Alternatively you may use `yarn`:
+
+```sh
+yarn add react-styleguidist
+```
+
+Then, add these scripts to your `package.json`:
+
+```diff
+   "scripts": {
++    "styleguide": "styleguidist server",
++    "styleguide:build": "styleguidist build",
+     "start": "react-scripts start",
+```
+
+Then, run the following command inside your app’s directory:
+
+```sh
+npm run styleguide
+```
+
+After that, follow the instructions on the screen.
+
+Learn more about React Styleguidist:
+
+* [GitHub Repo](https://github.com/styleguidist/react-styleguidist)
+* [Documentation](https://react-styleguidist.js.org/docs/getting-started.html)
+
+## Making a Progressive Web App
+
+By default, the production build is a fully functional, offline-first
+[Progressive Web App](https://developers.google.com/web/progressive-web-apps/).
+
+Progressive Web Apps are faster and more reliable than traditional web pages, and provide an engaging mobile experience:
+
+ * All static site assets are cached so that your page loads fast on subsequent visits, regardless of network connectivity (such as 2G or 3G). Updates are downloaded in the background.
+ * Your app will work regardless of network state, even if offline. This means your users will be able to use your app at 10,000 feet and on the subway.
+ * On mobile devices, your app can be added directly to the user's home screen, app icon and all. You can also re-engage users using web **push notifications**. This eliminates the need for the app store.
+
+The [`sw-precache-webpack-plugin`](https://github.com/goldhand/sw-precache-webpack-plugin)
+is integrated into production configuration,
+and it will take care of generating a service worker file that will automatically
+precache all of your local assets and keep them up to date as you deploy updates.
+The service worker will use a [cache-first strategy](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network)
+for handling all requests for local assets, including the initial HTML, ensuring
+that your web app is reliably fast, even on a slow or unreliable network.
+
+### Opting Out of Caching
+
+If you would prefer not to enable service workers prior to your initial
+production deployment, then remove the call to `registerServiceWorker()`
+from [`src/index.js`](src/index.js).
+
+If you had previously enabled service workers in your production deployment and
+have decided that you would like to disable them for all your existing users,
+you can swap out the call to `registerServiceWorker()` in
+[`src/index.js`](src/index.js) first by modifying the service worker import:
+```javascript
+import { unregister } from './registerServiceWorker';
+```
+and then call `unregister()` instead.
+After the user visits a page that has `unregister()`,
+the service worker will be uninstalled. Note that depending on how `/service-worker.js` is served,
+it may take up to 24 hours for the cache to be invalidated.
+
+### Offline-First Considerations
+
+1. Service workers [require HTTPS](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers#you_need_https),
+although to facilitate local testing, that policy
+[does not apply to `localhost`](http://stackoverflow.com/questions/34160509/options-for-testing-service-workers-via-http/34161385#34161385).
+If your production web server does not support HTTPS, then the service worker
+registration will fail, but the rest of your web app will remain functional.
+
+1. Service workers are [not currently supported](https://jakearchibald.github.io/isserviceworkerready/)
+in all web browsers. Service worker registration [won't be attempted](src/registerServiceWorker.js)
+on browsers that lack support.
+
+1. The service worker is only enabled in the [production environment](#deployment),
+e.g. the output of `npm run build`. It's recommended that you do not enable an
+offline-first service worker in a development environment, as it can lead to
+frustration when previously cached assets are used and do not include the latest
+changes you've made locally.
+
+1. If you *need* to test your offline-first service worker locally, build
+the application (using `npm run build`) and run a simple http server from your
+build directory. After running the build script, `create-react-app` will give
+instructions for one way to test your production build locally and the [deployment instructions](#deployment) have
+instructions for using other methods. *Be sure to always use an
+incognito window to avoid complications with your browser cache.*
+
+1. If possible, configure your production environment to serve the generated
+`service-worker.js` [with HTTP caching disabled](http://stackoverflow.com/questions/38843970/service-worker-javascript-update-frequency-every-24-hours).
+If that's not possible—[GitHub Pages](#github-pages), for instance, does not
+allow you to change the default 10 minute HTTP cache lifetime—then be aware
+that if you visit your production site, and then revisit again before
+`service-worker.js` has expired from your HTTP cache, you'll continue to get
+the previously cached assets from the service worker. If you have an immediate
+need to view your updated production deployment, performing a shift-refresh
+will temporarily disable the service worker and retrieve all assets from the
+network.
+
+1. Users aren't always familiar with offline-first web apps. It can be useful to
+[let the user know](https://developers.google.com/web/fundamentals/instant-and-offline/offline-ux#inform_the_user_when_the_app_is_ready_for_offline_consumption)
+when the service worker has finished populating your caches (showing a "This web
+app works offline!" message) and also let them know when the service worker has
+fetched the latest updates that will be available the next time they load the
+page (showing a "New content is available; please refresh." message). Showing
+this messages is currently left as an exercise to the developer, but as a
+starting point, you can make use of the logic included in [`src/registerServiceWorker.js`](src/registerServiceWorker.js), which
+demonstrates which service worker lifecycle events to listen for to detect each
+scenario, and which as a default, just logs appropriate messages to the
+JavaScript console.
+
+1. By default, the generated service worker file will not intercept or cache any
+cross-origin traffic, like HTTP [API requests](#integrating-with-an-api-backend),
+images, or embeds loaded from a different domain. If you would like to use a
+runtime caching strategy for those requests, you can [`eject`](#npm-run-eject)
+and then configure the
+[`runtimeCaching`](https://github.com/GoogleChrome/sw-precache#runtimecaching-arrayobject)
+option in the `SWPrecacheWebpackPlugin` section of
+[`webpack.config.prod.js`](../config/webpack.config.prod.js).
+
+### Progressive Web App Metadata
+
+The default configuration includes a web app manifest located at
+[`public/manifest.json`](public/manifest.json), that you can customize with
+details specific to your web application.
+
+When a user adds a web app to their homescreen using Chrome or Firefox on
+Android, the metadata in [`manifest.json`](public/manifest.json) determines what
+icons, names, and branding colors to use when the web app is displayed.
+[The Web App Manifest guide](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/)
+provides more context about what each field means, and how your customizations
+will affect your users' experience.
+
+## Analyzing the Bundle Size
+
+[Source map explorer](https://www.npmjs.com/package/source-map-explorer) analyzes
+JavaScript bundles using the source maps. This helps you understand where code
+bloat is coming from.
+
+To add Source map explorer to a Create React App project, follow these steps:
+
+```sh
+npm install --save source-map-explorer
+```
+
+Alternatively you may use `yarn`:
+
+```sh
+yarn add source-map-explorer
+```
+
+Then in `package.json`, add the following line to `scripts`:
+
+```diff
