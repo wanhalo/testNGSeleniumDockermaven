@@ -23,4 +23,12 @@ class App extends Component {
   }
 
   render() {
-    retu
+    return (
+      <div>
+        <Ticker symbol="BTC" price={this.state.BTC}/>
+      </div>
+    );
+  }
+}
+
+export default App;
