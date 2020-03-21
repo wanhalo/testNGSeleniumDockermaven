@@ -175,4 +175,8 @@ array-equal@^1.0.0:
 
 array-filter@~0.0.0:
   version "0.0.1"
-  resolved "https://regi
+  resolved "https://registry.yarnpkg.com/array-filter/-/array-filter-0.0.1.tgz#7da8cf2e26628ed732803581fd21f67cacd2eeec"
+
+array-find-index@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/array-find-index/-/array-find-index-1.0.2.tgz#df010aa1287e164bbda6f
