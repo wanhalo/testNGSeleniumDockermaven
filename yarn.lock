@@ -310,4 +310,11 @@ aws4@^1.2.1, aws4@^1.6.0:
 
 axios@^0.17.1:
   version "0.17.1"
-  resolved "https://registry.yarnpkg.com/axios
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.17.1.tgz#2d8e3e5d0bdbd7327f91bc814f5c57660f81824d"
+  dependencies:
+    follow-redirects "^1.2.5"
+    is-buffer "^1.1.5"
+
+axobject-query@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-que
