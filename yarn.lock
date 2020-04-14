@@ -345,4 +345,14 @@ babel-core@6.26.0, babel-core@^6.0.0, babel-core@^6.26.0:
     babylon "^6.18.0"
     convert-source-map "^1.5.0"
     debug "^2.6.8"
-    json
+    json5 "^0.5.1"
+    lodash "^4.17.4"
+    minimatch "^3.0.4"
+    path-is-absolute "^1.0.1"
+    private "^0.1.7"
+    slash "^1.0.0"
+    source-map "^0.5.6"
+
+babel-eslint@7.2.3:
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/babel-eslin
