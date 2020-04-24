@@ -462,4 +462,10 @@ babel-helper-remap-async-to-generator@^6.24.1:
   dependencies:
     babel-helper-function-name "^6.24.1"
     babel-runtime "^6.22.0"
-    babel-template "^6.
+    babel-template "^6.24.1"
+    babel-traverse "^6.24.1"
+    babel-types "^6.24.1"
+
+babel-helper-replace-supers@^6.24.1:
+  version "6.24.1"
+  resolved "https://registry.yarnpkg.com/babel-helper-replace-supers/-/babel-helper-replace-supers-6.24.1.tgz#bf6dbfe43938d173
