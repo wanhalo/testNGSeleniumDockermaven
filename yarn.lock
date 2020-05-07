@@ -589,4 +589,8 @@ babel-plugin-transform-es2015-arrow-functions@^6.22.0:
 
 babel-plugin-transform-es2015-block-scoped-functions@^6.22.0:
   version "6.22.0"
-  resolved "htt
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-es2015-block-scoped-functions/-/babel-plugin-transform-es2015-block-scoped-functions-6.22.0.tgz#bbc51b49f964d70cb8d8e0b94e820246ce3a6141"
+  dependencies:
+    babel-runtime "^6.22.0"
+
+babel-plugin-transform-es2015-bl
