@@ -1009,4 +1009,14 @@ body-parser@1.18.2:
     depd "~1.1.1"
     http-errors "~1.6.2"
     iconv-lite "0.4.19"
-    on-finis
+    on-finished "~2.3.0"
+    qs "6.5.1"
+    raw-body "2.3.2"
+    type-is "~1.6.15"
+
+bonjour@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/bonjour/-/bonjour-3.5.0.tgz#8e890a183d8ee9a2393b3844c691a42bcf7bc9f5"
+  dependencies:
+    array-flatten "^2.1.0"
+    de
