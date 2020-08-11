@@ -1303,3 +1303,14 @@ chokidar@^1.6.0, chokidar@^1.7.0:
     glob-parent "^2.0.0"
     inherits "^2.0.1"
     is-binary-path "^1.0.0"
+    is-glob "^2.0.0"
+    path-is-absolute "^1.0.0"
+    readdirp "^2.0.0"
+  optionalDependencies:
+    fsevents "^1.0.0"
+
+ci-info@^1.0.0:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-1.1.2.tgz#03561259db48d0474c8bdc90f5b47b068b6bbfb4"
+
+cipher-base@^1.0.
