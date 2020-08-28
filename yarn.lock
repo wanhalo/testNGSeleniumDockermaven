@@ -1367,3 +1367,12 @@ cliui@^3.2.0:
     wrap-ansi "^2.0.0"
 
 clone@^1.0.2:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.3.tgz#298d7e2231660f40c003c2ed3140decf3f53085f"
+
+co@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
+
+coa@~1.0.1:
+  v
