@@ -1613,4 +1613,10 @@ crypto-browserify@^3.11.0:
     diffie-hellman "^5.0.0"
     inherits "^2.0.1"
     pbkdf2 "^3.0.3"
-    pub
+    public-encrypt "^4.0.0"
+    randombytes "^2.0.0"
+    randomfill "^1.0.3"
+
+css-color-names@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb6
