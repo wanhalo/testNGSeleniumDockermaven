@@ -1651,4 +1651,12 @@ css-select@^1.1.0:
 
 css-selector-tokenizer@^0.7.0:
   version "0.7.0"
-  resolved "https://registry.yarnpkg.com/css-selector-tokenizer/-/css-sele
+  resolved "https://registry.yarnpkg.com/css-selector-tokenizer/-/css-selector-tokenizer-0.7.0.tgz#e6988474ae8c953477bf5e7efecfceccd9cf4c86"
+  dependencies:
+    cssesc "^0.1.0"
+    fastparse "^1.1.1"
+    regexpu-core "^1.0.0"
+
+css-what@2.1:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/css-wh
