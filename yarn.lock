@@ -1673,4 +1673,12 @@ cssesc@^0.1.0:
     decamelize "^1.1.2"
     defined "^1.0.0"
     has "^1.0.1"
-    object-as
+    object-assign "^4.0.1"
+    postcss "^5.0.14"
+    postcss-calc "^5.2.0"
+    postcss-colormin "^2.1.8"
+    postcss-convert-values "^2.3.4"
+    postcss-discard-comments "^2.0.4"
+    postcss-discard-duplicates "^2.0.1"
+    postcss-discard-empty "^2.0.1"
+    post
