@@ -1694,4 +1694,14 @@ cssesc@^0.1.0:
     postcss-normalize-charset "^1.1.0"
     postcss-normalize-url "^3.0.7"
     postcss-ordered-values "^2.1.0"
-    postcss-reduce-idents 
+    postcss-reduce-idents "^2.2.2"
+    postcss-reduce-initial "^1.0.0"
+    postcss-reduce-transforms "^1.0.3"
+    postcss-svgo "^2.1.1"
+    postcss-unique-selectors "^2.0.2"
+    postcss-value-parser "^3.2.3"
+    postcss-zindex "^2.0.1"
+
+csso@~2.3.1:
+  version "2.3.2"
+  resolved "https://registry.y
