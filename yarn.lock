@@ -1901,4 +1901,10 @@ doctrine@^2.0.0:
 
 dom-converter@~0.1:
   version "0.1.4"
-  resolved "https://registry.yarnpkg.com/dom-converte
+  resolved "https://registry.yarnpkg.com/dom-converter/-/dom-converter-0.1.4.tgz#a45ef5727b890c9bffe6d7c876e7b19cb0e17f3b"
+  dependencies:
+    utila "~0.3"
+
+dom-serializer@0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.1.0.tgz#073c697546ce0780ce23be
