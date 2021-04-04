@@ -1981,4 +1981,8 @@ ee-first@1.1.1:
 
 electron-releases@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.yarnpkg.com
+  resolved "https://registry.yarnpkg.com/electron-releases/-/electron-releases-2.1.0.tgz#c5614bf811f176ce3c836e368a0625782341fd4e"
+
+electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.30:
+  version "1.3.30"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/elect
