@@ -2209,4 +2209,13 @@ eslint-plugin-jsx-a11y@5.1.1:
 
 eslint-plugin-react@7.4.0:
   version "7.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plug
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.4.0.tgz#300a95861b9729c087d362dd64abcc351a74364a"
+  dependencies:
+    doctrine "^2.0.0"
+    has "^1.0.1"
+    jsx-ast-utils "^2.0.0"
+    prop-types "^15.5.10"
+
+eslint-scope@^3.7.1:
+  version "3.7.1"
+  resolve
