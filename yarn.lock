@@ -2234,4 +2234,15 @@ eslint@4.10.0:
     cross-spawn "^5.1.0"
     debug "^3.0.1"
     doctrine "^2.0.0"
-    esli
+    eslint-scope "^3.7.1"
+    espree "^3.5.1"
+    esquery "^1.0.0"
+    estraverse "^4.2.0"
+    esutils "^2.0.2"
+    file-entry-cache "^2.0.0"
+    functional-red-black-tree "^1.0.1"
+    glob "^7.1.2"
+    globals "^9.17.0"
+    ignore "^3.3.3"
+    imurmurhash "^0.1.4"
+    inquirer
