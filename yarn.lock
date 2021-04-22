@@ -2245,4 +2245,14 @@ eslint@4.10.0:
     globals "^9.17.0"
     ignore "^3.3.3"
     imurmurhash "^0.1.4"
-    inquirer
+    inquirer "^3.0.6"
+    is-resolvable "^1.0.0"
+    js-yaml "^3.9.1"
+    json-stable-stringify "^1.0.1"
+    levn "^0.3.0"
+    lodash "^4.17.4"
+    minimatch "^3.0.2"
+    mkdirp "^0.5.1"
+    natural-compare "^1.4.0"
+    optionator "^0.8.2"
+    path-is-in
