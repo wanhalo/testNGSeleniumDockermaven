@@ -2414,4 +2414,12 @@ extend@~3.0.0, extend@~3.0.1:
 
 external-editor@^2.0.4:
   version "2.1.0"
-  resolved "https://registry.yarnpkg.com/e
+  resolved "https://registry.yarnpkg.com/external-editor/-/external-editor-2.1.0.tgz#3d026a21b7f95b5726387d4200ac160d372c3b48"
+  dependencies:
+    chardet "^0.4.0"
+    iconv-lite "^0.4.17"
+    tmp "^0.0.33"
+
+extglob@^0.3.1:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg
