@@ -2473,4 +2473,10 @@ faye-websocket@~0.11.0:
 
 fb-watchman@^1.8.0:
   version "1.9.2"
-  resolved "https://registry.yarnpk
+  resolved "https://registry.yarnpkg.com/fb-watchman/-/fb-watchman-1.9.2.tgz#a24cf47827f82d38fb59a69ad70b76e3b6ae7383"
+  dependencies:
+    bser "1.0.2"
+
+fb-watchman@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/fb-watchman/-/fb-watchman-2.0.0.tgz
