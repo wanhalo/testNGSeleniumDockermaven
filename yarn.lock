@@ -2497,4 +2497,10 @@ fbjs@^0.8.16:
 
 figures@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/figu
+  resolved "https://registry.yarnpkg.com/figures/-/figures-2.0.0.tgz#3ab1a2d2a62c8bfb431a0c94cb797a2fce27c962"
+  dependencies:
+    escape-string-regexp "^1.0.5"
+
+file-entry-cache@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/file-entry-cache/-/file-entry-cache-2.0.
