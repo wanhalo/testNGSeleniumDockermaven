@@ -2542,4 +2542,8 @@ fill-range@^2.1.0:
 
 filled-array@^1.0.0:
   version "1.1.0"
-  resolved "https://registry.yarnpkg.co
+  resolved "https://registry.yarnpkg.com/filled-array/-/filled-array-1.1.0.tgz#c3c4f6c663b923459a9aa29912d2d031f1507f84"
+
+finalhandler@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/finalhandler/-/finalhandler-1.1.0.tgz#ce0b6855b45853e791b2fcc680046d88
