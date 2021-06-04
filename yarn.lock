@@ -2558,4 +2558,11 @@ finalhandler@1.1.0:
 
 find-cache-dir@^0.1.1:
   version "0.1.1"
-  resolved "
+  resolved "https://registry.yarnpkg.com/find-cache-dir/-/find-cache-dir-0.1.1.tgz#c8defae57c8a52a8a784f9e31c57c742e993a0b9"
+  dependencies:
+    commondir "^1.0.1"
+    mkdirp "^0.5.1"
+    pkg-dir "^1.0.0"
+
+find-cache-dir@^1.0.0:
+  vers
