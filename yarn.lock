@@ -2851,4 +2851,12 @@ handlebars@^4.0.3:
     optimist "^0.6.1"
     source-map "^0.4.4"
   optionalDependencies:
-    uglify-j
+    uglify-js "^2.6"
+
+har-schema@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/har-schema/-/har-schema-1.0.5.tgz#d263135f43307c02c602afc8fe95970c0151369e"
+
+har-schema@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.
