@@ -3294,4 +3294,10 @@ is-npm@^1.0.0:
 
 is-number@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.yarnpkg
+  resolved "https://registry.yarnpkg.com/is-number/-/is-number-2.1.0.tgz#01fcbbb393463a548f2f466cce16dece49db908f"
+  dependencies:
+    kind-of "^3.0.2"
+
+is-number@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/is-number/-/is-number-3.0.0.tgz#24fd620
