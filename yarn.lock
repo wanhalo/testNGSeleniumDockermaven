@@ -3356,4 +3356,10 @@ is-resolvable@^1.0.0:
 
 is-retry-allowed@^1.0.0:
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/is-retry-all
+  resolved "https://registry.yarnpkg.com/is-retry-allowed/-/is-retry-allowed-1.1.0.tgz#11a060568b67339444033d0125a61a20d564fb34"
+
+is-root@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/is-root/-/is-root-1.0.0.tgz#07b6c233bc394cd9d02ba15c966bd6660d6342d5"
+
+is-stream@^1.0.
