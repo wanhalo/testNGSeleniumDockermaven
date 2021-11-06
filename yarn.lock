@@ -3553,4 +3553,12 @@ jest-docblock@^20.0.3:
 
 jest-environment-jsdom@^20.0.3:
   version "20.0.3"
-  resolved "https://registry.yarnpkg.com/jest-enviro
+  resolved "https://registry.yarnpkg.com/jest-environment-jsdom/-/jest-environment-jsdom-20.0.3.tgz#048a8ac12ee225f7190417713834bb999787de99"
+  dependencies:
+    jest-mock "^20.0.3"
+    jest-util "^20.0.3"
+    jsdom "^9.12.0"
+
+jest-environment-node@^20.0.3:
+  version "20.0.3"
+  resolved "https://registry.yarnpkg.com/jest
