@@ -3568,4 +3568,14 @@ jest-environment-node@^20.0.3:
 
 jest-haste-map@^20.0.4:
   version "20.0.5"
-  resolved "https://registry.yarnpkg.com/jest-haste-map/-/jest-ha
+  resolved "https://registry.yarnpkg.com/jest-haste-map/-/jest-haste-map-20.0.5.tgz#abad74efb1a005974a7b6517e11010709cab9112"
+  dependencies:
+    fb-watchman "^2.0.0"
+    graceful-fs "^4.1.11"
+    jest-docblock "^20.0.3"
+    micromatch "^2.3.11"
+    sane "~1.6.0"
+    worker-farm "^1.3.1"
+
+jest-jasmine2@^20.0.4:
+  ve
