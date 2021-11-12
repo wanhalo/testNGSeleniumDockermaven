@@ -3600,4 +3600,13 @@ jest-matcher-utils@^20.0.3:
 
 jest-matchers@^20.0.3:
   version "20.0.3"
-  resolved "https://registry.yarnpkg.com/jest-
+  resolved "https://registry.yarnpkg.com/jest-matchers/-/jest-matchers-20.0.3.tgz#ca69db1c32db5a6f707fa5e0401abb55700dfd60"
+  dependencies:
+    jest-diff "^20.0.3"
+    jest-matcher-utils "^20.0.3"
+    jest-message-util "^20.0.3"
+    jest-regex-util "^20.0.3"
+
+jest-message-util@^20.0.3:
+  version "20.0.3"
+  resolved "h
