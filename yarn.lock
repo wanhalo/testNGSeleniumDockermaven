@@ -3759,4 +3759,8 @@ json-loader@^0.5.4:
 
 json-schema-traverse@^0.3.0:
   version "0.3.1"
-  
+  resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-0.3.1.tgz#349a6d44c53a51de89b40805c5d5e59b417d3340"
+
+json-schema@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/json-schema/-/json-schema-0.2.3.tgz#b480c8
