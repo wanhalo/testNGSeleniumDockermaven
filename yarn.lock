@@ -3820,4 +3820,9 @@ jsx-ast-utils@^2.0.0:
 
 killable@^1.0.0:
   version "1.0.0"
-  resolved "https://registr
+  resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.0.tgz#da8b84bd47de5395878f95d64d02f2449fe05e6b"
+
+kind-of@^3.0.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
+  dependenc
