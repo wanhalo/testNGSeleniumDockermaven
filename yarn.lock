@@ -4086,4 +4086,15 @@ micromatch@^2.1.5, micromatch@^2.3.11:
     braces "^1.8.2"
     expand-brackets "^0.1.4"
     extglob "^0.3.1"
- 
+    filename-regex "^2.0.0"
+    is-extglob "^1.0.0"
+    is-glob "^2.0.1"
+    kind-of "^3.0.2"
+    normalize-path "^2.0.1"
+    object.omit "^2.0.0"
+    parse-glob "^3.0.4"
+    regex-cache "^0.4.2"
+
+miller-rabin@^4.0.0:
+  version "4.0.1"
+  reso
