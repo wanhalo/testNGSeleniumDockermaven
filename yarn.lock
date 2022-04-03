@@ -4561,4 +4561,8 @@ path-is-absolute@^1.0.0, path-is-absolute@^1.0.1:
 
 path-is-inside@^1.0.1, path-is-inside@^1.0.2:
   version "1.0.2"
-  resolved "h
+  resolved "https://registry.yarnpkg.com/path-is-inside/-/path-is-inside-1.0.2.tgz#365417dede44430d1c11af61027facf074bdfc53"
+
+path-key@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/path-key/-/path-key-2.0
