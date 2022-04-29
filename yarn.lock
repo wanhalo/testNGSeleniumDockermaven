@@ -4733,4 +4733,11 @@ postcss-load-config@^1.2.0:
 
 postcss-load-options@^1.2.0:
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/postcss-load-options/-/postcss-load-opt
+  resolved "https://registry.yarnpkg.com/postcss-load-options/-/postcss-load-options-1.2.0.tgz#b098b1559ddac2df04bc0bb375f99a5cfe2b6d8c"
+  dependencies:
+    cosmiconfig "^2.1.0"
+    object-assign "^4.1.0"
+
+postcss-load-plugins@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/postcss-load-plugins/-/postcss-loa
