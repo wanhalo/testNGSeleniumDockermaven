@@ -4762,4 +4762,12 @@ postcss-merge-idents@^2.1.5:
     postcss "^5.0.10"
     postcss-value-parser "^3.1.1"
 
-postcss-me
+postcss-merge-longhand@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/postcss-merge-longhand/-/postcss-merge-longhand-2.0.2.tgz#23d90cd127b0a77994915332739034a1a4f3d658"
+  dependencies:
+    postcss "^5.0.4"
+
+postcss-merge-rules@^2.0.3:
+  version "2.1.2"
+  resolved "ht
