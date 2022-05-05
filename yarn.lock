@@ -4782,4 +4782,10 @@ postcss-message-helpers@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/postcss-message-helpers/-/postcss-message-helpers-2.0.0.tgz#a4f2f4fab6e4fe002f0aed000478cdf52f9ba60e"
 
-postcss-minify-font-va
+postcss-minify-font-values@^1.0.2:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/postcss-minify-font-values/-/postcss-minify-font-values-1.0.5.tgz#4b58edb56641eba7c8474ab3526cafd7bbdecb69"
+  dependencies:
+    object-assign "^4.0.1"
+    postcss "^5.0.4"
+    postcss-value-parser "^3.0.
