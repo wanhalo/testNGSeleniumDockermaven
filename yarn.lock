@@ -4802,4 +4802,10 @@ postcss-minify-params@^1.0.4:
   resolved "https://registry.yarnpkg.com/postcss-minify-params/-/postcss-minify-params-1.2.2.tgz#ad2ce071373b943b3d930a3fa59a358c28d6f1f3"
   dependencies:
     alphanum-sort "^1.0.1"
-    postcs
+    postcss "^5.0.2"
+    postcss-value-parser "^3.0.2"
+    uniqs "^2.0.0"
+
+postcss-minify-selectors@^2.0.4:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/postcss-minify-selectors/-/postcss-minify-selectors-2.1.1.tgz#b2c6a98c0072cf91b932d1a49650811431173
