@@ -4879,4 +4879,12 @@ postcss-reduce-initial@^1.0.0:
 
 postcss-reduce-transforms@^1.0.3:
   version "1.0.4"
-  resolved "https://registry.yarnpkg.com/postcss-reduce-transforms/-/postcss-reduce-transforms-1.0.4.tgz#ff76f4d821
+  resolved "https://registry.yarnpkg.com/postcss-reduce-transforms/-/postcss-reduce-transforms-1.0.4.tgz#ff76f4d8212437b31c298a42d2e1444025771ae1"
+  dependencies:
+    has "^1.0.1"
+    postcss "^5.0.8"
+    postcss-value-parser "^3.0.1"
+
+postcss-selector-parser@^2.0.0, postcss-selector-parser@^2.2.2:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/
