@@ -5277,4 +5277,11 @@ readdirp@^2.0.0:
     set-immediate-shim "^1.0.1"
 
 recursive-readdir@2.2.1:
-  version 
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/recursive-readdir/-/recursive-readdir-2.2.1.tgz#90ef231d0778c5ce093c9a48d74e5c5422d13a99"
+  dependencies:
+    minimatch "3.0.3"
+
+redent@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/redent/-/redent-1.0.0
