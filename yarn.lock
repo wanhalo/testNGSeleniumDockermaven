@@ -5412,4 +5412,15 @@ request@2.81.0:
     http-signature "~1.1.0"
     is-typedarray "~1.0.0"
     isstream "~0.1.2"
-    json-stringify-
+    json-stringify-safe "~5.0.1"
+    mime-types "~2.1.7"
+    oauth-sign "~0.8.1"
+    performance-now "^0.2.0"
+    qs "~6.4.0"
+    safe-buffer "^5.0.1"
+    stringstream "~0.0.4"
+    tough-cookie "~2.3.0"
+    tunnel-agent "^0.6.0"
+    uuid "^3.0.0"
+
+req
