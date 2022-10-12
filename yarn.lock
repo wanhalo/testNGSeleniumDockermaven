@@ -5771,4 +5771,8 @@ spdx-correct@~1.0.0:
 
 spdx-expression-parse@~1.0.0:
   version "1.0.4"
-  resolved "https://registry.yarnpkg
+  resolved "https://registry.yarnpkg.com/spdx-expression-parse/-/spdx-expression-parse-1.0.4.tgz#9bdf2f20e1f40ed447fbe273266191fced51626c"
+
+spdx-license-ids@^1.0.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-1.2.2.tgz#c9df7a3424594ade6bd11900d596696dc06bac57
