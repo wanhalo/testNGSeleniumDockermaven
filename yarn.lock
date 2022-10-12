@@ -5765,4 +5765,10 @@ source-map@^0.6.1, source-map@~0.6.1:
 
 spdx-correct@~1.0.0:
   version "1.0.2"
-  resolved 
+  resolved "https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-1.0.2.tgz#4b3073d933ff51f3912f03ac5519498a4150db40"
+  dependencies:
+    spdx-license-ids "^1.0.2"
+
+spdx-expression-parse@~1.0.0:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg
