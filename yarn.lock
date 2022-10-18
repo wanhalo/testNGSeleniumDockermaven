@@ -5870,4 +5870,10 @@ string-width@^2.0.0, string-width@^2.1.0, string-width@^2.1.1:
 
 string_decoder@^1.0.0, string_decoder@~1.0.3:
   version "1.0.3"
-  resolved "ht
+  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.0.3.tgz#0fc67d7c141825de94282dd536bec6b9bce860ab"
+  dependencies:
+    safe-buffer "~5.1.0"
+
+string_decoder@~0.10.x:
+  version "0.10.31"
+  re
