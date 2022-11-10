@@ -5976,4 +5976,12 @@ sw-precache@^5.1.1:
     glob "^7.1.1"
     lodash.defaults "^4.2.0"
     lodash.template "^4.4.0"
-    meow
+    meow "^3.7.0"
+    mkdirp "^0.5.1"
+    pretty-bytes "^4.0.2"
+    sw-toolbox "^3.4.0"
+    update-notifier "^1.0.3"
+
+sw-toolbox@^3.4.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/sw-toolbox/-/sw-toolbox-3.6.
