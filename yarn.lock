@@ -6089,4 +6089,8 @@ to-fast-properties@^1.0.3:
 
 toposort@^1.0.0:
   version "1.0.6"
-  resolved "https://registry.yarnpkg.com/toposort/-
+  resolved "https://registry.yarnpkg.com/toposort/-/toposort-1.0.6.tgz#c31748e55d210effc00fdcdc7d6e68d7d7bb9cec"
+
+tough-cookie@^2.3.2, tough-cookie@~2.3.0, tough-cookie@~2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.3.3.tgz#0b618a5565b6dea90bf
