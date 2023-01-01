@@ -6337,4 +6337,10 @@ watchpack@^1.4.0:
 
 wbuf@^1.1.0, wbuf@^1.7.2:
   version "1.7.2"
-  resolved "https://registry.y
+  resolved "https://registry.yarnpkg.com/wbuf/-/wbuf-1.7.2.tgz#d697b99f1f59512df2751be42769c1580b5801fe"
+  dependencies:
+    minimalistic-assert "^1.0.0"
+
+webidl-conversions@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/webidl-conversions/-
