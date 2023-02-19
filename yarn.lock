@@ -6432,4 +6432,11 @@ webpack@3.8.1:
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
 
-websocket-driver@>=0.
+websocket-driver@>=0.5.1:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/websocket-driver/-/websocket-driver-0.7.0.tgz#0caf9d2d755d93aee049d4bdd0d3fe2cca2a24eb"
+  dependencies:
+    http-parser-js ">=0.4.0"
+    websocket-extensions ">=0.1.1"
+
+websocket-extensions@>=0
