@@ -6466,4 +6466,10 @@ whet.extend@~0.9.9:
 
 which-module@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/which-module
+  resolved "https://registry.yarnpkg.com/which-module/-/which-module-1.0.0.tgz#bba63ca861948994ff307736089e3b96026c2a4f"
+
+which-module@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/which-module/-/which-module-2.0.0.tgz#d9ef07dce77b9902b8a3a8fa4b31c3e3f7e6e87a"
+
+which@^1.
