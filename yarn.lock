@@ -6486,4 +6486,12 @@ wide-align@^1.1.0:
 
 widest-line@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/widest-line/-/widest-line-1.0
+  resolved "https://registry.yarnpkg.com/widest-line/-/widest-line-1.0.0.tgz#0c09c85c2a94683d0d7eaf8ee097d564bf0e105c"
+  dependencies:
+    string-width "^1.0.1"
+
+window-size@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.0.tgz#5438cd2ea93b202efa3a19fe8887aee7c94f9c9d"
+
+wordwrap@0.
